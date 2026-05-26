@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matematika Diskrit: Komplemen Himpunan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans">
+
+    <div class="max-w-4xl mx-auto p-6">
+        <header class="text-center mb-10">
+            <h1 class="text-4xl font-bold text-indigo-600">Komplemen Himpunan</h1>
+            <p class="text-slate-500 mt-2">Mata Kuliah: Matematika Diskrit</p>
+        </header>
+
+        <section class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 mb-8">
+            <h2 class="text-xl font-semibold mb-3">Apa itu Komplemen?</h2>
+            <p class="leading-relaxed">
+                Misalkan $U$ adalah himpunan semesta dan $A$ adalah suatu himpunan bagian dari $U$. 
+                <strong>Komplemen dari $A$</strong> (notasi: $A^c$ atau $A'$) adalah himpunan semua anggota $U$ yang bukan anggota $A$.
+            </p>
+            <div class="mt-4 bg-indigo-50 p-4 rounded-lg border-l-4 border-indigo-500">
+                <code class="text-indigo-700 font-mono">Aᶜ = { x | x ∈ U dan x ∉ A }</code>
+            </div>
+        </section>
+
+        <section class="bg-white p-6 rounded-xl shadow-md border border-indigo-100">
+            <h2 class="text-xl font-semibold mb-5 text-center">Kalkulator & Diagram Venn</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-sm font-medium mb-1">Himpunan Semesta (U)</label>
+                    <input id="inputU" type="text" placeholder="Contoh: 1,2,3,4,5,6,7" 
+                           class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-1">Himpunan A</label>
+                    <input id="inputA" type="text" placeholder="Contoh: 2,4,6" 
+                           class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none">
+                </div>
+            </div>
+
+            <button onclick="hitungDanGambar()" 
+                    class="w-full mt-6 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 rounded-lg transition">
+                Hitung & Visualisasikan
+            </button>
+
+            <div id="resultBox" class="hidden mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 items-center bg-slate-100 p-6 rounded-lg">
+                <div class="text-center md:text-left">
+                    <h3 class="text-lg font-bold mb-2">Hasil Perhitungan:</h3>
+                    <p id="resultDisplay" class="text-3xl font-mono text-indigo-600 tracking-widest mb-2"></p>
+                    <p id="explanation" class="text-sm text-slate-500"></p>
+                </div>
+                <div class="flex justify-center">
+                    <canvas id="vennCanvas" width="300" height="200" class="border border-slate-300 rounded bg-white shadow-inner"></canvas>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function hitungDanGambar() {
+            const valU = document.getElementById('inputU').value;
+            const valA = document.getElementById('inputA').value;
+
+            // Parsing input menjadi array unik
+            const U = [...new Set(valU.split(',').map(item => item.trim()).filter(item => item !== ""))];
+            const A = [...new Set(valA.split(',').map(item => item.trim()).filter(item => item !== ""))];
+
+            // Filter agar elemen A benar-benar bagian dari U (antisipasi input salah)
+            const A_valid = A.filter(x => U.includes(x));
+            
+            // Hitung Komplemen (Elemen di U yang TIDAK ADA di A)
+            const complement = U.filter(x => !A_valid.includes(x));
+
+            // Tampilkan text hasil
+            const resultBox = document.getElementById('resultBox');
+            document.getElementById('resultDisplay').innerText = `{ ${complement.join(', ')} }`;
+            document.getElementById('explanation').innerText = `Daerah yang berwarna abu-abu gelap pada diagram di samping menunjukkan komplemen dari A (Aᶜ), yaitu anggota semesta U yang tidak termasuk dalam lingkaran A.`;
+            resultBox.classList.remove('hidden');
+
+            // --- Logika Gambar Diagram Venn (HTML5 Canvas) ---
+            const canvas = document.getElementById('vennCanvas');
+            const ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // 1. Gambar Semesta U (Kotak Luar) - Diarsir abu-abu karena melambangkan Komplemen
+            ctx.fillStyle = '#cbd5e1'; // Warna abu-abu (daerah komplemen)
+            ctx.fillRect(10, 10, 280, 180);
+            ctx.lineWidth = 2;
+            ctx.strokeStyle = '#334155';
+            ctx.strokeRect(10, 10, 280, 180);
+            
+            // Label 'U' di pojok kiri atas kotak
+            ctx.fillStyle = '#334155';
+            ctx.font = 'bold 14px sans-serif';
+            ctx.fillText('U', 20, 28);
+
+            // 2. Gambar Lingkaran Himpunan A (Berwarna putih/kosong karena bukan komplemen)
+            const circleX = 150;
+            const circleY = 100;
+            const radius = 60;
+
+            ctx.beginPath();
+            ctx.arc(circleX, circleY, radius, 0, 2 * Math.PI);
+            ctx.fillStyle = '#ffffff'; // Putih (bukan daerah komplemen)
+            ctx.fill();
+            ctx.stroke();
+
+            // Label 'A' di atas lingkaran
+            ctx.fillStyle = '#334155';
+            ctx.fillText('A', circleX - 5, circleY - radius - 8);
+
+            // 3. Tulis Anggota/Elemen ke dalam Diagram
+            ctx.font = '12px sans-serif';
+            
+            // Tulis elemen yang ada di dalam lingkaran A
+            A_valid.forEach((el, index) => {
+                // Mengatur posisi teks di dalam lingkaran agar tidak menumpuk secara sederhana
+                const angle = (index * 2 * Math.PI) / (A_valid.length || 1);
+                const r = radius * 0.4; // Jarak dari pusat lingkaran
+                const x = circleX + r * Math.cos(angle) - 5;
+                const y = circleY + r * Math.sin(angle) + 4;
+                ctx.fillStyle = '#1e293b';
+                ctx.fillText(el, x, y);
+            });
+
+            // Tulis elemen komplemen (di luar lingkaran A tapi di dalam kotak U)
+            complement.forEach((el, index) => {
+                // Penempatan acak teratur di luar lingkaran
+                const positions = [
+                    {x: 40, y: 60}, {x: 40, y: 140}, {x: 250, y: 60}, 
+                    {x: 250, y: 140}, {x: 150, y: 35}, {x: 150, y: 175}
+                ];
+                const pos = positions[index % positions.length];
+                // Sedikit modifikasi berdasarkan index agar tidak sama persis jika datanya banyak
+                const offset = Math.floor(index / positions.length) * 15; 
+                ctx.fillStyle = '#4338ca'; // Warna teks indigo cerah untuk komplemen
+                ctx.font = 'bold 13px sans-serif';
+                ctx.fillText(el, pos.x + (offset % 30), pos.y);
+            });
+        }
+    </script>
+</body>
+</html>
