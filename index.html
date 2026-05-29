@@ -8,285 +8,226 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
-        .tab-content { display: none; }
-        .tab-content.active { display: block; }
     </style>
 </head>
-<body class="bg-gradient-to-br from-purple-50 via-teal-50/20 to-indigo-50 min-h-screen text-slate-800 antialiased">
+<body class="bg-gradient-to-tr from-indigo-50/50 via-purple-50/30 to-teal-50/50 min-h-screen text-slate-800 antialiased">
 
-    <header class="relative overflow-hidden bg-white/70 backdrop-blur-md border-b border-indigo-100 py-12 text-center shadow-sm">
-        <div class="absolute -top-12 -left-12 w-48 h-48 bg-purple-200/50 rounded-full blur-3xl"></div>
-        <div class="absolute -bottom-12 -right-12 w-48 h-48 bg-teal-200/50 rounded-full blur-3xl"></div>
+    <header class="relative overflow-hidden bg-white/80 backdrop-blur-md border-b border-purple-100 py-16 text-center shadow-sm">
+        <div class="absolute -top-12 -left-12 w-48 h-48 bg-purple-200/40 rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-12 -right-12 w-48 h-48 bg-teal-200/40 rounded-full blur-3xl"></div>
         
-        <div class="max-w-4xl mx-auto px-6 relative">
+        <div class="max-w-3xl mx-auto px-6 relative">
             <span class="px-4 py-1.5 bg-purple-100 text-purple-700 rounded-full text-xs font-bold uppercase tracking-widest shadow-sm">Matematika Diskrit</span>
-            <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 mt-4 tracking-tight">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 mt-4 tracking-tight leading-tight">
                 Belajar Math bersama <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500">Fakhrul</span>
             </h1>
-            <p class="text-slate-500 mt-2 text-md md:text-lg font-medium">E-Learning Interaktif & Kalkulator Komplemen Himpunan</p>
+            <p class="text-slate-500 mt-3 text-md md:text-lg font-medium">E-Learning Interaktif Pembahasan Materi Komplemen Himpunan</p>
         </div>
     </header>
 
-    <main class="max-w-4xl mx-auto p-6">
+    <main class="max-w-3xl mx-auto px-6 py-12 space-y-12">
         
-        <nav class="flex p-1.5 bg-slate-200/50 backdrop-blur rounded-2xl mb-8 shadow-inner">
-            <button onclick="switchTab('materi-tab')" id="btn-materi-tab" class="tab-btn flex-1 py-3 text-sm font-bold rounded-xl transition-all duration-200 bg-white text-indigo-600 shadow-sm">
-                📚 Materi & Rumus
-            </button>
-            <button onclick="switchTab('kalkulator-tab')" id="btn-kalkulator-tab" class="tab-btn flex-1 py-3 text-sm font-bold rounded-xl transition-all duration-200 text-slate-600 hover:text-slate-900">
-                🧮 Kalkulator & Ilustrasi
-            </button>
-            <button onclick="switchTab('soal-tab')" id="btn-soal-tab" class="tab-btn flex-1 py-3 text-sm font-bold rounded-xl transition-all duration-200 text-slate-600 hover:text-slate-900">
-                📝 Contoh Soal & Kuis
-            </button>
-        </nav>
-
-        <section id="materi-tab" class="tab-content active space-y-6">
-            <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-purple-100/80">
-                <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2">
-                    <span class="w-2.5 h-6 bg-purple-400 rounded-full"></span> 1. Pengertian Materi Komplemen
-                </h2>
-                <p class="text-slate-600 leading-relaxed text-base md:text-lg">
-                    Misalkan kita memiliki sebuah **Himpunan Semesta ($U$)** yang memuat seluruh objek pembicaraan, dan sebuah himpunan $A$ di mana $A$ merupakan himpunan bagian dari $U$ ($A \subseteq U$).
+        <section class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-purple-100/70 transition-all hover:shadow-md">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+                <span class="w-2.5 h-6 bg-purple-400 rounded-full"></span> 1. Pengertian Komplemen Himpunan
+            </h2>
+            <div class="text-slate-600 leading-relaxed space-y-3 text-base md:text-lg">
+                <p>
+                    Misalkan terdapat sebuah **Himpunan Semesta ($U$)** yang mencakup seluruh objek pembicaraan, dan sebuah himpunan $A$ yang berada di dalam semesta tersebut ($A \subseteq U$).
                 </p>
-                <p class="text-slate-600 leading-relaxed text-base md:text-lg mt-2">
-                    <span class="text-indigo-600 font-bold bg-indigo-50 px-1.5 py-0.5 rounded">Komplemen dari Himpunan A</span> adalah suatu himpunan yang anggota-anggotanya merupakan seluruh elemen dari semesta $U$ yang **TIDAK TERMASUK** atau bukan merupakan anggota dari himpunan $A$.
+                <p>
+                    <span class="text-indigo-600 font-bold bg-indigo-50 px-2 py-0.5 rounded-lg">Komplemen dari Himpunan A</span> didefinisikan sebagai suatu himpunan yang seluruh anggotanya merupakan elemen dari himpunan semesta $U$, tetapi **TIDAK TERMASUK** atau bukan merupakan anggota dari himpunan $A$.
                 </p>
-            </div>
-
-            <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-teal-100/80">
-                <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2">
-                    <span class="w-2.5 h-6 bg-teal-400 rounded-full"></span> 2. Notasi & Rumus Matematis
-                </h2>
-                <p class="text-slate-600 leading-relaxed mb-4">
-                    Komplemen dari himpunan $A$ biasanya dinotasikan dengan lambang <strong class="text-purple-600">$A^c$</strong> atau <strong class="text-purple-600">$A'$</strong>. Secara matematis, rumus pembentuk himpunannya dituliskan sebagai berikut:
-                </p>
-                
-                <div class="bg-gradient-to-r from-indigo-950 to-slate-900 text-slate-100 p-6 rounded-xl font-mono text-center relative overflow-hidden shadow-md">
-                    <div class="absolute top-0 left-0 w-1 h-full bg-teal-400"></div>
-                    <p class="text-xs text-slate-400 mb-2">// Notasi Pembentuk Himpunan Komplemen</p>
-                    <p class="text-xl md:text-2xl font-bold text-teal-300 tracking-wide">Aᶜ = { x | x ∈ U dan x ∉ A }</p>
-                </div>
-                <p class="text-xs text-slate-400 mt-3 italic">*Dibaca: A komplemen adalah himpunan x sedemikian rupa sehingga x adalah anggota semesta U dan x bukan merupakan anggota A.</p>
             </div>
         </section>
 
+        <section class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-teal-100/70 transition-all hover:shadow-md">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+                <span class="w-2.5 h-6 bg-teal-400 rounded-full"></span> 2. Notasi & Rumus Matematis
+            </h2>
+            <p class="text-slate-600 leading-relaxed mb-4 text-base md:text-lg">
+                Komplemen dari himpunan $A$ biasanya dituliskan dengan lambang atau notasi <strong class="text-purple-600 font-semibold">$A^c$</strong> atau <strong class="text-purple-600 font-semibold">$A'$</strong>. Rumus matematika pembentuk himpunannya adalah:
+            </p>
+            
+            <div class="bg-gradient-to-r from-slate-900 to-indigo-950 text-slate-100 p-6 rounded-2xl font-mono text-center relative overflow-hidden shadow-inner">
+                <div class="absolute top-0 left-0 w-1 h-full bg-teal-300"></div>
+                <p class="text-xs text-slate-400 mb-2">// Notasi Pembentuk Himpunan Komplemen</p>
+                <p class="text-xl md:text-2xl font-bold text-teal-300 tracking-wide">Aᶜ = { x | x ∈ U dan x ∉ A }</p>
+            </div>
+            <p class="text-xs text-slate-400 mt-3 italic">*Artinya: Himpunan semua elemen x di mana x merupakan anggota dari semesta U, tetapi x bukan anggota dari himpunan A.</p>
+        </section>
 
-        <section id="kalkulator-tab" class="tab-content space-y-6">
-            <div class="bg-white p-6 md:p-8 rounded-2xl shadow-md border border-indigo-100/50">
-                <h2 class="text-xl md:text-2xl font-bold text-slate-900 mb-2 text-center">Kalkulator Komplemen & Gambar Diagram Venn</h2>
-                <p class="text-center text-sm text-slate-400 mb-6">Masukkan angka sesukamu untuk melihat cara kerja dan ilustrasi visualnya secara langsung!</p>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                        <label class="block text-sm font-bold text-slate-700 mb-2">Himpunan Semesta (U) <span class="text-slate-400 font-normal">(pisahkan dengan koma)</span></label>
-                        <input id="inputU" type="text" value="1, 2, 3, 4, 5, 6, 7, 8" class="w-full p-3.5 bg-purple-50/50 border border-purple-200/60 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:bg-white outline-none font-medium transition-all">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-bold text-slate-700 mb-2">Himpunan A <span class="text-slate-400 font-normal">(harus bagian dari U)</span></label>
-                        <input id="inputA" type="text" value="2, 4, 6, 8" class="w-full p-3.5 bg-teal-50/50 border border-teal-200/60 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:bg-white outline-none font-medium transition-all">
-                    </div>
-                </div>
+        <section class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-pink-100/70 transition-all hover:shadow-md space-y-6">
+            <h2 class="text-2xl font-bold text-slate-900 mb-2 flex items-center gap-2">
+                <span class="w-2.5 h-6 bg-pink-400 rounded-full"></span> 3. Contoh Soal & Cara Pengerjaan
+            </h2>
+            
+            <div class="p-5 rounded-2xl bg-rose-50/60 border border-rose-100/60">
+                <span class="px-2.5 py-1 bg-rose-100 text-rose-700 rounded-md text-xs font-bold uppercase tracking-wider block w-max mb-2">Soal Kasus</span>
+                <p class="text-slate-700 leading-relaxed font-medium">
+                    Diketahui Himpunan Semesta <code class="bg-white/80 px-1 py-0.5 rounded border">U = {1, 2, 3, 4, 5, 6, 7, 8}</code> dan <br> Himpunan <code class="bg-white/80 px-1 py-0.5 rounded border">A = {2, 4, 6, 8}</code> (bilangan genap). <br>
+                    Tentukan seluruh anggota dari <strong class="text-indigo-600">Aᶜ (A komplemen)</strong>!
+                </p>
+            </div>
 
-                <button onclick="hitungDanGambar()" class="w-full mt-6 bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 text-white font-bold py-4 rounded-xl shadow-md transition-all duration-200 active:scale-[0.99]">
-                    Proses Operasi & Gambar Diagram
-                </button>
-
-                <div id="resultBox" class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-slate-50 p-6 rounded-2xl border border-slate-100">
-                    <div class="space-y-4 text-center md:text-left">
-                        <div>
-                            <span class="text-xs font-bold text-indigo-700 bg-indigo-100 px-3 py-1 rounded-full">Hasil Operasi (Aᶜ) :</span>
-                            <p id="resultDisplay" class="text-3xl font-extrabold text-indigo-600 font-mono tracking-wide mt-2"></p>
-                        </div>
-                        <div class="pt-3 border-t border-slate-200 text-sm text-slate-500 leading-relaxed">
-                            <span class="font-bold text-slate-700 block mb-1">Keterangan Wilayah:</span>
-                            Elemen di atas adalah anggota semesta $U$ yang posisinya berada di luar lingkaran $A$ karena bukan merupakan bagian dari himpunan $A$.
-                        </div>
-                    </div>
-                    
-                    <div class="flex flex-col items-center justify-center space-y-2">
-                        <span class="text-xs font-bold text-slate-500 mb-1">5) Gambar / Ilustrasi Diagram Venn Komplemen</span>
-                        <canvas id="vennCanvas" width="320" height="220" class="border border-purple-100 rounded-xl bg-white shadow-inner"></canvas>
-                        <div class="flex items-center gap-2 mt-1">
-                            <span class="w-3 h-3 bg-[#ffe4e6] border border-rose-300 rounded"></span>
-                            <span class="text-xs text-slate-400 font-medium">Daerah berwarna Pink Pastel melambangkan daerah Aᶜ</span>
-                        </div>
-                    </div>
+            <div class="p-5 rounded-2xl bg-teal-50/60 border border-teal-100/60">
+                <span class="px-2.5 py-1 bg-teal-100 text-teal-700 rounded-md text-xs font-bold uppercase tracking-wider block w-max mb-3">Langkah Penyelesaian</span>
+                <ol class="list-decimal list-inside space-y-2.5 text-slate-700 text-sm md:text-base">
+                    <li>Sandingkan elemen pada semesta <code class="bg-white/80 px-1 py-0.5 rounded border">U</code> dengan himpunan <code class="bg-white/80 px-1 py-0.5 rounded border">A</code>.</li>
+                    <li>Cari dan eliminasi (coret) angka di semesta <code class="bg-white/80 px-1 py-0.5 rounded border">U</code> yang juga ada di dalam <code class="bg-white/80 px-1 py-0.5 rounded border">A</code> (yaitu coret 2, 4, 6, 8).</li>
+                    <li>Tuliskan sisa elemen semesta <code class="bg-white/80 px-1 py-0.5 rounded border">U</code> yang tidak dimiliki oleh <code class="bg-white/80 px-1 py-0.5 rounded border">A</code>.</li>
+                    <li>Sisa angka yang didapatkan adalah <strong class="text-indigo-600 font-bold">1, 3, 5, dan 7</strong>.</li>
+                </ol>
+                <div class="mt-4 pt-3 border-t border-teal-200/60 font-mono text-sm font-bold text-slate-800">
+                    Maka diperoleh hasil akhir: Aᶜ = { 1, 3, 5, 7 }
                 </div>
             </div>
         </section>
 
-
-        <section id="soal-tab" class="tab-content space-y-6">
-            <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-pink-100">
-                <h2 class="text-xl md:text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2">
-                    <span class="w-2.5 h-6 bg-pink-400 rounded-full"></span> 3) Contoh Soal & 4) Cara Pengerjaan
-                </h2>
-                
-                <div class="space-y-6">
-                    <div class="p-5 rounded-xl bg-rose-50/50 border border-rose-100">
-                        <p class="font-bold text-indigo-900 mb-2">CONTOH SOAL:</p>
-                        <p class="text-slate-700 leading-relaxed">
-                            Diketahui himpunan semesta pembicaraan adalah bilangan asli kurang dari 9, maka <br>
-                            <strong>U = {1, 2, 3, 4, 5, 6, 7, 8}</strong>. <br>
-                            Jika diketahui Himpunan <strong>A = {2, 3, 5, 7}</strong> (himpunan bilangan prima kurang dari 9). <br>
-                            Tentukan Anggota dari <strong>Aᶜ (A komplemen)</strong>!
-                        </p>
-                    </div>
-
-                    <div class="p-5 rounded-xl bg-teal-50/50 border border-teal-100">
-                        <p class="font-bold text-teal-900 mb-2">4) CARA PENGERJAAN / SOLUSI:</p>
-                        <ol class="list-decimal list-inside space-y-2 text-slate-700">
-                            <li>Tuliskan dan sejajarkan seluruh anggota himpunan semesta <code class="bg-white px-1 py-0.5 rounded border">U</code> dan himpunan <code class="bg-white px-1 py-0.5 rounded border">A</code>.</li>
-                            <li>Eliminasi atau coret angka di dalam semesta <code class="bg-white px-1 py-0.5 rounded border">U</code> yang juga dimiliki oleh himpunan <code class="bg-white px-1 py-0.5 rounded border">A</code> (yaitu angka 2, 3, 5, dan 7).</li>
-                            <li>Kumpulkan seluruh sisa elemen di semesta <code class="bg-white px-1 py-0.5 rounded border">U</code> yang tidak dicoret/tidak ada di <code class="bg-white px-1 py-0.5 rounded border">A</code>.</li>
-                            <li>Didapatkan sisa elemen semesta yaitu angka: <strong class="text-indigo-600">1, 4, 6, dan 8</strong>.</li>
-                        </ol>
-                        <div class="mt-4 pt-3 border-t border-teal-200/60 font-mono text-sm">
-                            <strong>Hasil Akhir:</strong> Aᶜ = { 1, 4, 6, 8 }
-                        </div>
-                    </div>
+        <section class="bg-white p-6 md:p-8 rounded-3xl shadow-md border border-indigo-100/50 space-y-6">
+            <h2 class="text-2xl font-bold text-slate-900 text-center">4. Kalkulator & Ilustrasi Kompelem Himpunan</h2>
+            <p class="text-center text-sm text-slate-400 -mt-4">Ketik angka sesukamu untuk memproses hasil operasi dan memperbarui ilustrasi gambar secara dinamis.</p>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-sm font-bold text-slate-700 mb-1.5">Himpunan Semesta (U)</label>
+                    <input id="inputU" type="text" value="1, 2, 3, 4, 5, 6, 7, 8" class="w-full p-3.5 bg-purple-50/40 border border-purple-200/60 rounded-xl focus:ring-2 focus:ring-indigo-400 focus:bg-white outline-none font-medium transition-all text-sm">
+                </div>
+                <div>
+                    <label class="block text-sm font-bold text-slate-700 mb-1.5">Himpunan A</label>
+                    <input id="inputA" type="text" value="2, 4, 6, 8" class="w-full p-3.5 bg-teal-50/40 border border-teal-200/60 rounded-xl focus:ring-2 focus:ring-indigo-400 focus:bg-white outline-none font-medium transition-all text-sm">
                 </div>
             </div>
 
-            <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-200">
-                <h2 class="text-xl font-bold text-slate-900 mb-2">📝 Uji Pemahaman Mandiri</h2>
-                <p class="text-sm text-slate-400 mb-6">Pilih jawaban yang menurutmu paling tepat!</p>
+            <button onclick="hitungDanGambar()" class="w-full bg-gradient-to-r from-indigo-500 to-purple-500 hover:from-indigo-600 hover:to-purple-600 text-white font-bold py-4 rounded-xl shadow-md transition-all active:scale-[0.99]">
+                Hitung & Perbarui Ilustrasi Gambar
+            </button>
 
-                <div class="p-4 rounded-xl border border-slate-100 bg-slate-50/60 mb-4">
-                    <p class="font-semibold text-slate-800 mb-3">Jika U = {a, b, c, d} dan A = {b, d}, maka tentukan anggota dari Aᶜ!</p>
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                        <button onclick="checkAnswer(this, false)" class="text-left p-3 rounded-lg border bg-white hover:bg-slate-50 transition text-sm">{ b, d }</button>
-                        <button onclick="checkAnswer(this, true)" class="text-left p-3 rounded-lg border bg-white hover:bg-slate-50 transition text-sm font-semibold">{ a, c }</button>
-                        <button onclick="checkAnswer(this, false)" class="text-left p-3 rounded-lg border bg-white hover:bg-slate-50 transition text-sm">{ a, b, c, d }</button>
+            <div id="resultBox" class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center bg-slate-50 p-6 rounded-2xl border border-slate-100/80">
+                <div class="space-y-3 text-center md:text-left">
+                    <span class="text-xs font-bold text-indigo-700 bg-indigo-100 px-3 py-1 rounded-full">Hasil Perhitungan (Aᶜ) :</span>
+                    <p id="resultDisplay" class="text-3xl font-extrabold text-indigo-600 font-mono tracking-wide"></p>
+                    <p class="text-xs text-slate-400 leading-relaxed pt-2 border-t border-slate-200">
+                        *Seluruh angka di atas otomatis digambar di luar lingkaran $A$ karena merupakan daerah komplemennya.
+                    </p>
+                </div>
+                
+                <div class="flex flex-col items-center justify-center space-y-2">
+                    <span class="text-xs font-bold text-slate-500">Ilustrasi Gambar Diagram Venn</span>
+                    <canvas id="vennCanvas" width="290" height="200" class="border border-purple-100 rounded-2xl bg-white shadow-inner"></canvas>
+                    <div class="flex items-center gap-2">
+                        <span class="w-3 h-3 bg-[#ffe4e6] border border-rose-300 rounded"></span>
+                        <span class="text-xs text-slate-400 font-medium">Daerah berwarna Pink Pastel melambangkan wilayah Aᶜ</span>
                     </div>
                 </div>
             </div>
         </section>
+
+        <section class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-slate-200/80">
+            <h2 class="text-xl font-bold text-slate-900 mb-1">📝 Uji Pemahaman Mandiri</h2>
+            <p class="text-xs text-slate-400 mb-4">Yuk coba selesaikan kuis satu soal ini!</p>
+
+            <div class="p-4 rounded-xl border border-slate-100 bg-slate-50/60">
+                <p class="font-semibold text-slate-800 mb-3 text-sm md:text-base">Jika U = {a, b, c, d} dan A = {b, d}, berapakah hasil operasi dari Aᶜ?</p>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <button onclick="checkAnswer(this, false)" class="text-left p-3 rounded-xl border bg-white hover:bg-slate-50 transition text-sm">{ b, d }</button>
+                    <button onclick="checkAnswer(this, true)" class="text-left p-3 rounded-xl border bg-white hover:bg-slate-50 transition text-sm font-semibold text-indigo-600">{ a, c }</button>
+                    <button onclick="checkAnswer(this, false)" class="text-left p-3 rounded-xl border bg-white hover:bg-slate-50 transition text-sm">{ a, b, c, d }</button>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <footer class="text-center my-12 text-xs text-slate-400">
-        <p>© 2026 Belajar Math bersama Fakhrul. Dibuat dengan VS Code, GitHub & Vercel.</p>
+        <p>© 2026 Belajar Math bersama Fakhrul. All Rights Reserved.</p>
     </footer>
 
     <script>
-        // Sistem Navigasi Tab Menu
-        function switchTab(tabId) {
-            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-            document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.classList.remove('bg-white', 'text-indigo-600', 'shadow-sm');
-                btn.classList.add('text-slate-600');
-            });
-
-            document.getElementById(tabId).classList.add('active');
-            document.getElementById('btn-' + tabId).classList.add('bg-white', 'text-indigo-600', 'shadow-sm');
-            document.getElementById('btn-' + tabId).classList.remove('text-slate-600');
-
-            // Otomatis render diagram jika membuka tab kalkulator
-            if (tabId === 'kalkulator-tab') {
-                hitungDanGambar();
-            }
-        }
-
-        // Pengecekan Kuis Interaktif
         function checkAnswer(button, isCorrect) {
             const parent = button.parentElement;
             parent.querySelectorAll('button').forEach(btn => {
                 btn.disabled = true;
-                btn.className = "text-left p-3 rounded-lg border bg-slate-100 text-slate-400 cursor-not-allowed text-sm";
+                btn.className = "text-left p-3 rounded-xl border bg-slate-100 text-slate-400 cursor-not-allowed text-sm";
             });
             if (isCorrect) {
-                button.className = "text-left p-3 rounded-lg border border-emerald-400 bg-emerald-50 text-emerald-700 font-bold text-sm shadow-sm";
+                button.className = "text-left p-3 rounded-xl border border-emerald-400 bg-emerald-50 text-emerald-700 font-bold text-sm shadow-sm";
             } else {
-                button.className = "text-left p-3 rounded-lg border border-rose-400 bg-rose-50 text-rose-700 font-bold text-sm shadow-sm";
+                button.className = "text-left p-3 rounded-xl border border-rose-400 bg-rose-50 text-rose-700 font-bold text-sm shadow-sm";
             }
         }
 
-        // Logika Matematika & Engine Menggambar Diagram Venn
         function hitungDanGambar() {
             const valU = document.getElementById('inputU').value;
             const valA = document.getElementById('inputA').value;
 
-            // Membersihkan input & mengubah ke bentuk array unik
             const U = [...new Set(valU.split(',').map(item => item.trim()).filter(item => item !== ""))];
             const A = [...new Set(valA.split(',').map(item => item.trim()).filter(item => item !== ""))];
             
-            // Validasi: Elemen A harus merupakan bagian dari U
             const A_valid = A.filter(x => U.includes(x));
-            
-            // Operasi Rumus Komplemen (Elemen di U yang TIDAK ADA di A)
             const complement = U.filter(x => !A_valid.includes(x));
 
-            // Tampilkan Teks Hasil ke Layar
             document.getElementById('resultDisplay').innerText = complement.length > 0 ? `{ ${complement.join(', ')} }` : "{ }";
 
-            // --- CANVAS DRAWING WORKER ---
+            // CANVAS GENERATOR DIAGRAM VENN
             const canvas = document.getElementById('vennCanvas');
             if(!canvas) return;
             const ctx = canvas.getContext('2d');
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-            // 1. Gambar Semesta U (Kotak Luar - Diwarnai Pastel Rose/Pink sebagai Komplemen A)
-            ctx.fillStyle = '#ffe4e6'; // Soft pink pastel lambang daerah komplemen
-            ctx.fillRect(15, 15, 290, 190);
-            ctx.lineWidth = 2.5;
-            ctx.strokeStyle = '#64748b'; // Border abu-abu
-            ctx.strokeRect(15, 15, 290, 190);
+            // Kotak Luar (Semesta U - Diwarnai Pastel Pink melambangkan komplemen)
+            ctx.fillStyle = '#ffe4e6';
+            ctx.fillRect(15, 15, 260, 170);
+            ctx.lineWidth = 2;
+            ctx.strokeStyle = '#64748b';
+            ctx.strokeRect(15, 15, 260, 170);
             
-            // Label Semesta 'U'
             ctx.fillStyle = '#1e293b';
-            ctx.font = 'bold 16px sans-serif';
-            ctx.fillText('U', 28, 38);
+            ctx.font = 'bold 15px sans-serif';
+            ctx.fillText('U', 25, 35);
 
-            // 2. Gambar Lingkaran Himpunan A (Putih Bersih karena bukan daerah komplemen)
-            const circleX = 160;
-            const circleY = 110;
-            const radius = 60;
+            // Lingkaran Himpunan A (Putih Bersih karena bukan daerah komplemen)
+            const circleX = 145;
+            const circleY = 100;
+            const radius = 55;
 
             ctx.beginPath();
             ctx.arc(circleX, circleY, radius, 0, 2 * Math.PI);
-            ctx.fillStyle = '#ffffff'; // Putih polos
+            ctx.fillStyle = '#ffffff';
             ctx.fill();
-            ctx.lineWidth = 2;
-            ctx.strokeStyle = '#6366f1'; // Border lingkaran warna ungu/indigo
+            ctx.lineWidth = 1.5;
+            ctx.strokeStyle = '#6366f1';
             ctx.stroke();
 
-            // Label Nama Himpunan 'A'
             ctx.fillStyle = '#6366f1';
-            ctx.font = 'bold 15px sans-serif';
-            ctx.fillText('A', circleX - 6, circleY - radius - 10);
+            ctx.fillText('A', circleX - 5, circleY - radius - 8);
 
-            // 3. Penyebaran Anggota ke dalam Diagram
-            ctx.font = '13px sans-serif';
-            
-            // Tulis elemen Himpunan A (di dalam lingkaran putih)
-            A_valid.forEach((el, index) => {
-                const angle = (index * 2 * Math.PI) / (A_valid.length || 1);
-                const r = radius * 0.45; // Radius sebaran internal
-                const x = circleX + r * Math.cos(angle) - 5;
-                const y = circleY + r * Math.sin(angle) + 4;
+            // Tulis Teks Anggota Di Dalam Lingkaran A
+            ctx.font = '12px sans-serif';
+            A_valid.forEach((el, idx) => {
+                const angle = (idx * 2 * Math.PI) / (A_valid.length || 1);
+                const r = radius * 0.45;
                 ctx.fillStyle = '#1e293b';
-                ctx.fillText(el, x, y);
+                ctx.fillText(el, circleX + r * Math.cos(angle) - 5, circleY + r * Math.sin(angle) + 4);
             });
 
-            // Tulis elemen Komplemen (di luar lingkaran, di dalam kotak pink pastel)
-            complement.forEach((el, index) => {
-                // Kumpulan koordinat titik aman agar angka menyebar rapi
+            // Tulis Teks Anggota Di Luar Lingkaran A (Daerah Komplemen)
+            complement.forEach((el, idx) => {
                 const safePositions = [
-                    {x: 45, y: 75},   {x: 50, y: 155}, 
-                    {x: 265, y: 75},  {x: 260, y: 160}, 
-                    {x: 160, y: 45},  {x: 160, y: 195},
-                    {x: 80, y: 110},  {x: 235, y: 115}
+                    {x: 40, y: 65},   {x: 45, y: 145}, 
+                    {x: 240, y: 65},  {x: 235, y: 150}, 
+                    {x: 145, y: 40},  {x: 145, y: 175},
+                    {x: 75, y: 105},  {x: 215, y: 105}
                 ];
-                const pos = safePositions[index % safePositions.length];
-                const offset = Math.floor(index / safePositions.length) * 12; 
-                ctx.fillStyle = '#b91c1c'; // Teks berwarna merah tua kontras untuk daerah komplemen
-                ctx.font = 'bold 14px sans-serif';
-                ctx.fillText(el, pos.x + (offset % 15), pos.y);
+                const pos = safePositions[idx % safePositions.length];
+                const offset = Math.floor(idx / safePositions.length) * 12; 
+                ctx.fillStyle = '#b91c1c';
+                ctx.font = 'bold 13px sans-serif';
+                ctx.fillText(el, pos.x + (offset % 10), pos.y);
             });
         }
 
-        // Jalankan kalkulator otomatis pertama kali saat aplikasi dibuka
+        // Jalankan Kalkulator secara otomatis saat pertama halaman dimuat
         window.onload = function() {
             hitungDanGambar();
         };
